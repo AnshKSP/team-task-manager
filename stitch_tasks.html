@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sahara - Kanban Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#605850",
+                        "on-background": "#3a302a",
+                        "on-secondary-fixed-variant": "#504840",
+                        "surface-container-highest": "#e6e0d6",
+                        "on-primary-fixed": "#401a08",
+                        "error-container": "#fce4e0",
+                        "on-tertiary-container": "#3a2020",
+                        "on-tertiary-fixed": "#2e1515",
+                        "primary": "#c2652a",
+                        "error": "#c0392b",
+                        "on-tertiary-fixed-variant": "#6e3030",
+                        "on-error-container": "#7a1a10",
+                        "on-primary-container": "#fbe8d8",
+                        "secondary-fixed": "#eae2da",
+                        "tertiary": "#8c3c3c",
+                        "surface-tint": "#c2652a",
+                        "tertiary-fixed-dim": "#e8a0a0",
+                        "surface-container-high": "#ece6dc",
+                        "secondary-container": "#eae2da",
+                        "on-secondary-container": "#605850",
+                        "surface-container": "#f2ece4",
+                        "surface-bright": "#faf5ee",
+                        "surface-variant": "#ece6dc",
+                        "inverse-primary": "#f0a878",
+                        "primary-container": "#e08850",
+                        "outline-variant": "#d8d0c8",
+                        "background": "#faf5ee",
+                        "surface-container-low": "#f6f0e8",
+                        "outline": "#9a9088",
+                        "surface-dim": "#dcd6cc",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#3a302a",
+                        "on-primary-fixed-variant": "#8a4518",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#fce0e0",
+                        "primary-fixed-dim": "#f0a878",
+                        "secondary": "#78706a",
+                        "inverse-on-surface": "#faf5ee",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#fbe8d8",
+                        "on-secondary-fixed": "#2a2420",
+                        "tertiary-container": "#d47070",
+                        "on-surface": "#3a302a",
+                        "surface": "#faf5ee",
+                        "secondary-fixed-dim": "#cec6be",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["EB Garamond", "serif"],
+                        "display": ["EB Garamond", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-serif { font-family: 'EB Garamond', serif; }
+        .kanban-scroll::-webkit-scrollbar { height: 6px; }
+        .kanban-scroll::-webkit-scrollbar-track { background: transparent; }
+        .kanban-scroll::-webkit-scrollbar-thumb { background: #d8d0c8; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- SideNavBar (from JSON) -->
+<nav class="bg-[#faf5ee] dark:bg-stone-950 text-[#c2652a] dark:text-orange-500 font-sans uppercase tracking-widest text-xs border-r border-stone-200/60 dark:border-stone-800/60 h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col h-full py-8 space-y-6 z-50">
+<div class="px-8 mb-4">
+<h1 class="font-serif text-xl italic text-[#c2652a] dark:text-orange-200">Sahara</h1>
+<p class="text-[10px] text-stone-400 mt-1">Premium Management</p>
+</div>
+<div class="flex flex-col space-y-2 px-4 flex-grow">
+<a class="flex items-center space-x-4 px-4 py-3 rounded-lg text-stone-400 dark:text-stone-500 hover:text-[#c2652a] hover:translate-x-1 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-4 px-4 py-3 rounded-lg text-stone-400 dark:text-stone-500 hover:text-[#c2652a] hover:translate-x-1 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">layers</span>
+<span>Projects</span>
+</a>
+<a class="flex items-center space-x-4 px-4 py-3 rounded-lg text-[#c2652a] dark:text-orange-300 font-bold border-r-4 border-[#c2652a] bg-orange-50/50 dark:bg-orange-900/10 active:ring-1 ring-orange-200 dark:ring-orange-900" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">view_kanban</span>
+<span>Tasks</span>
+</a>
+<a class="flex items-center space-x-4 px-4 py-3 rounded-lg text-stone-400 dark:text-stone-500 hover:text-[#c2652a] hover:translate-x-1 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
+<span>Team</span>
+</a>
+<a class="flex items-center space-x-4 px-4 py-3 rounded-lg text-stone-400 dark:text-stone-500 hover:text-[#c2652a] hover:translate-x-1 transition-all duration-300 ease-out mt-auto" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="px-8 mt-auto pt-8">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-bold tracking-wider hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-[0_2px_16px_rgba(58,48,42,0.04)]">New Project</button>
+</div>
+</nav>
+<!-- TopAppBar (from JSON) for Mobile / Supplemental -->
+<header class="bg-[#faf5ee]/80 dark:bg-stone-900/80 backdrop-blur-xl font-serif text-[#c2652a] font-light border-b border-stone-200/60 dark:border-stone-800/60 shadow-sm shadow-stone-200/50 dark:shadow-none docked full-width top-0 z-40 flex justify-between items-center w-full px-8 py-4 md:hidden">
+<div class="font-serif text-2xl font-semibold tracking-tight text-[#c2652a] dark:text-orange-200">Sahara</div>
+<div class="flex space-x-4 text-[#c2652a] dark:text-orange-400">
+<button class="hover:bg-orange-50/50 dark:hover:bg-stone-800/50 transition-colors duration-300 rounded-full p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:bg-orange-50/50 dark:hover:bg-stone-800/50 transition-colors duration-300 rounded-full p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">contrast</span>
+</button>
+<button class="hover:bg-orange-50/50 dark:hover:bg-stone-800/50 transition-colors duration-300 rounded-full p-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="User avatar" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A close-up portrait of a professional woman with a warm, approachable smile, set against a bright, minimalist background. The lighting is soft and golden, reflecting a luxurious, sun-baked aesthetic. Warm sienna and earthy tones subtly accent the composition, creating a refined and elegant mood suitable for a premium application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5s_qREWFmqMDP2XoEXdGkv-fwogj-b57DiP6aYRGdZBht45A2i80MmkAE81Taa9QeeTWZHd1qZ0hpbtH9_fe0O6YU13VAi3BXe0LOXpBCbuGUO_jnf0azzqOB61sR7dyCnWW1b8TVR9qo0UaOSeg9gd0S0O3ODHmFF_gegNu2xgXVHMiyD9rvIr1hjcSWSR55WyoV3EjRqT20argBB6S2DDQg68HIfbrMH2lZDl8dsZ9pEgoMhrcJnayfVNkQKJz3YiVrybCof-c"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 flex flex-col h-screen relative bg-surface-container-lowest">
+<!-- Board Header -->
+<div class="px-8 py-6 border-b border-outline-variant/40 bg-surface-bright flex justify-between items-end flex-shrink-0">
+<div>
+<p class="text-sm font-label text-on-surface-variant uppercase tracking-widest mb-1">Project Alpha</p>
+<h2 class="text-4xl font-headline text-on-surface leading-tight">Q3 Marketing Campaign</h2>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex -space-x-3">
+<img alt="Team member" class="w-10 h-10 rounded-full border-2 border-surface-bright object-cover" data-alt="A portrait of a male team member looking focused, illuminated by warm, soft light in a minimalist office setting. The background is a blurred, creamy linen color, emphasizing a clean, professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASFYYUA5oKe6B2vB-Qj7wv2vg_NnrK_W4TvoW-djQqZkBXY8Vsj6FQcCjz--J7WtLyRwGBrOp7CeP6rLLvnb4OFLVwRnmRM7ICsAEJESVY9O3zd6HBTab5oCgCsHgNcxdHj2W-S6rYctS_xffN8GIbz50XB7ayV9Tbxs4Vn8iJaC1sQtU2xJ0oYJb77quXEkSMwQRePicLbYdMSt2kzFcgZ6d_kOTPt9_LR33i5rXCvvBLBz5ixi9xdxFQpWpFbRp3WgQplHt4-L0"/>
+<img alt="Team member" class="w-10 h-10 rounded-full border-2 border-surface-bright object-cover" data-alt="A portrait of a female team member with a subtle smile, styled with warm earthy tones. The setting is minimal and bright, featuring a soft sienna undertone that feels luxurious and curated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ4g287tCgeASD3ICzZTNXVdZGJBprmYp3kVVWFYQPpqjHbZ-Fbvzt3Ui62hvzgTqTDisoTOx4_tYXC3kPki4Ght1DBVORWbZuBQ485IbAfpmasGFNeTfxrVgiCm7Wj9UWD2MUlPaPgbO8sQjSsTIWBbdHBCbI4SVDEGaA8iALKSwSqW9keMeXxWt1Grye5yRiIf5KvfYJnRufscb-ZR8oYQYVB1b-s0ijkGC1Owu5e5sNkrxIduJprCQH34yrKFNVVLAaKuoGWHI"/>
+<div class="w-10 h-10 rounded-full border-2 border-surface-bright bg-surface-container-high flex items-center justify-center text-sm font-label text-on-surface-variant z-10">+3</div>
+</div>
+<button class="flex items-center space-x-2 bg-surface border border-outline-variant px-4 py-2 rounded-lg text-on-surface hover:bg-surface-container transition-colors shadow-[0_2px_16px_rgba(58,48,42,0.04)]">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span class="font-label text-sm">Filter</span>
+</button>
+</div>
+</div>
+<!-- Kanban Board Area -->
+<div class="flex-1 overflow-x-auto overflow-y-hidden kanban-scroll bg-surface-container-lowest p-8">
+<div class="flex space-x-6 h-full items-start min-w-[1200px]">
+<!-- Column: To Do -->
+<div class="w-80 flex-shrink-0 flex flex-col max-h-full">
+<div class="flex justify-between items-center mb-4 px-2">
+<h3 class="font-headline text-xl text-on-surface flex items-center gap-2">
+                            To Do <span class="bg-surface-container-high text-on-surface-variant text-xs px-2 py-0.5 rounded-full font-label">4</span>
+</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto space-y-4 pb-4 pr-2 kanban-scroll">
+<!-- Task Card 1 -->
+<div class="bg-surface-bright border border-outline-variant/60 rounded-xl p-5 shadow-[0_2px_16px_rgba(58,48,42,0.04)] hover:shadow-md transition-shadow cursor-pointer group">
+<div class="flex justify-between items-start mb-3">
+<span class="bg-primary-container/20 text-primary-fixed-variant text-xs px-2.5 py-1 rounded-md font-label uppercase tracking-wider font-semibold">Copywriting</span>
+<button class="text-outline hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+</div>
+<h4 class="font-body text-on-surface font-medium mb-2 leading-snug">Draft initial landing page copy for Autumn collection</h4>
+<p class="text-sm font-label text-on-surface-variant line-clamp-2 mb-4">Focus on the warm tones and luxurious textures of the new line. Keep the tone editorial.</p>
+<div class="flex justify-between items-center mt-auto">
+<div class="flex items-center space-x-1 text-on-surface-variant text-xs font-label">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>Oct 12</span>
+</div>
+<img alt="Assignee" class="w-6 h-6 rounded-full object-cover" data-alt="A small circular portrait of a creative professional, warm minimalist aesthetic, bathed in soft golden hour light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCKKjAQqWIJZnGP_gs6OH7MWhLTqSey25qyfCIbd9WO5kUVLt9X3390TfA-kDliQ6lRapXiGEBvqibK_d8aLk3MLFrOSe5St4WaLVSoTjpjuH0djYGysToSqexUS3a119UKiYqGlLa8MWznZPkoEtSTm-cQFIaG65go6MkUsuPDBKWChMPTx9KoEzZvhwg4ka5lXojZbil0IBfjdMBypWbTpuVe-byPa7_KA1D-OnCzJ1baR78MGzBiTb5275azmYNnFwaZUgIHAw"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: In Progress -->
+<div class="w-80 flex-shrink-0 flex flex-col max-h-full">
+<div class="flex justify-between items-center mb-4 px-2">
+<h3 class="font-headline text-xl text-on-surface flex items-center gap-2">
+                            In Progress <span class="bg-primary-container text-on-primary-container text-xs px-2 py-0.5 rounded-full font-label">2</span>
+</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto space-y-4 pb-4 pr-2 kanban-scroll">
+<!-- Task Card 2 (Active/Selected state implied) -->
+<div class="bg-surface border-2 border-primary/30 rounded-xl p-5 shadow-[0_4px_24px_rgba(194,101,42,0.08)] cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex justify-between items-start mb-3">
+<span class="bg-tertiary-container/20 text-tertiary text-xs px-2.5 py-1 rounded-md font-label uppercase tracking-wider font-semibold">Design</span>
+</div>
+<h4 class="font-body text-on-surface font-medium mb-2 leading-snug">Design high-fidelity mockups for campaign hero section</h4>
+<div class="flex items-center space-x-4 mb-4 text-sm font-label text-on-surface-variant">
+<div class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">check_box</span>
+<span>2/5</span>
+</div>
+<div class="flex items-center space-x-1 text-primary">
+<span class="material-symbols-outlined text-[14px]">chat_bubble</span>
+<span>3</span>
+</div>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<div class="flex items-center space-x-1 text-error text-xs font-label font-medium">
+<span class="material-symbols-outlined text-[14px]">error</span>
+<span>Due Tomorrow</span>
+</div>
+<img alt="Assignee" class="w-6 h-6 rounded-full object-cover" data-alt="Small avatar of a focused designer, soft warm lighting, minimal luxury setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD95OrQPgCnYYgkj3Hlo4PgQiswjPA1mbL5ayVaY_vSSO1ohFTrFVs-uuhQMSv8g1fmJFyCWBGMzTs2rKVt4NnfuGVyic3L1kbK9rFf89L_9WBKYqlUXFyBjKbf8HVG2tVTvNz0akUoKDZF9vX5KTs52N_SQv3uaFvVoEyzphP8849SoGQvMpK3b-VOXanwOBWWbk0sWMiWiNDcY7S25hg9rBw3TtMrZ7iqczC6CxadOP0rLJno4URvflasC23VQ9aW6ADZYVigZUQ"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: In Review -->
+<div class="w-80 flex-shrink-0 flex flex-col max-h-full">
+<div class="flex justify-between items-center mb-4 px-2">
+<h3 class="font-headline text-xl text-on-surface flex items-center gap-2">
+                            In Review <span class="bg-surface-container-high text-on-surface-variant text-xs px-2 py-0.5 rounded-full font-label">1</span>
+</h3>
+</div>
+<div class="flex-1 overflow-y-auto space-y-4 pb-4 pr-2 kanban-scroll">
+<!-- Empty State or minimal cards could go here, omitting for brevity in effort level -->
+<div class="border border-dashed border-outline-variant/60 rounded-xl p-8 flex flex-col items-center justify-center text-center text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl mb-2 opacity-50">inventory_2</span>
+<p class="font-label text-sm">Drop tasks here for review</p>
+</div>
+</div>
+</div>
+<!-- Column: Done -->
+<div class="w-80 flex-shrink-0 flex flex-col max-h-full opacity-70">
+<div class="flex justify-between items-center mb-4 px-2">
+<h3 class="font-headline text-xl text-on-surface flex items-center gap-2">
+                            Done <span class="bg-secondary-container text-on-secondary-container text-xs px-2 py-0.5 rounded-full font-label">12</span>
+</h3>
+</div>
+<div class="flex-1 overflow-y-auto space-y-4 pb-4 pr-2 kanban-scroll">
+<!-- Done Card -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-5">
+<h4 class="font-body text-on-surface-variant line-through font-medium mb-2">Finalize moodboard</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="text-xs font-label text-secondary">Oct 5</span>
+<span class="material-symbols-outlined text-primary text-sm">task_alt</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide-over Panel (Task Details) - Positioned absolute over main content -->
+<aside class="absolute top-0 right-0 h-full w-full sm:w-[400px] lg:w-[480px] bg-surface-bright border-l border-outline-variant shadow-[-8px_0_32px_rgba(58,48,42,0.08)] flex flex-col z-30 transform transition-transform duration-300 translate-x-0">
+<!-- Panel Header -->
+<div class="px-8 py-6 border-b border-outline-variant/40 flex justify-between items-start bg-surface">
+<div class="flex items-center space-x-3 text-sm font-label text-on-surface-variant mb-2">
+<span class="bg-tertiary-container/20 text-tertiary text-xs px-2 py-1 rounded uppercase tracking-wider font-semibold">Design</span>
+<span>•</span>
+<span>In Progress</span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors p-1 rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Panel Body -->
+<div class="flex-1 overflow-y-auto p-8 kanban-scroll">
+<h2 class="font-headline text-3xl text-on-surface leading-tight mb-6">Design high-fidelity mockups for campaign hero section</h2>
+<!-- Metadata Grid -->
+<div class="grid grid-cols-2 gap-6 mb-8 p-6 bg-surface-container-low rounded-xl border border-outline-variant/30">
+<div>
+<p class="text-xs font-label text-on-surface-variant uppercase tracking-wider mb-2">Assignee</p>
+<div class="flex items-center space-x-3">
+<img alt="Assignee" class="w-8 h-8 rounded-full object-cover" data-alt="Avatar portrait of a designer, warm light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo61AKwFZBJ5rd_is-oqRQD0ANYXoqjErS7qE1EGuWDRQir4ElJOvvbrZiSz0dzSyDA0NPPiP4MZiEa4JBPCHYzKTLTy_gWG4WVCczQB52SmLG04vnQxbZbKfjeP1CvOOm4uhhhePXgdF1Q0FBgoO09Rk16B2bEtDmplN40lU8Iy9EfLl9hBRwZDM7d6yp1AAKa92VQaCPf7DUx7gbKoZ2X8dxYYB2uuZ5WaDuGyBgpBlaBw11yydSfU6xn6fJQ6nNRGIwTbFiv4M"/>
+<span class="font-body text-sm font-medium">David Chen</span>
+</div>
+</div>
+<div>
+<p class="text-xs font-label text-on-surface-variant uppercase tracking-wider mb-2">Due Date</p>
+<div class="flex items-center space-x-2 text-error font-medium text-sm">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Tomorrow</span>
+</div>
+</div>
+</div>
+<!-- Description -->
+<div class="mb-8">
+<h3 class="font-headline text-xl text-on-surface mb-3 border-b border-outline-variant/30 pb-2">Description</h3>
+<p class="font-label text-on-surface-variant leading-relaxed text-sm">
+                        Create the final visual designs for the top hero section of the new marketing landing page. Ensure the typography aligns with the editorial serif guidelines (EB Garamond) and utilize the warm sienna color palette. Provide desktop and mobile variations.
+                    </p>
+</div>
+<!-- Subtasks -->
+<div class="mb-8">
+<h3 class="font-headline text-xl text-on-surface mb-3 border-b border-outline-variant/30 pb-2 flex justify-between items-center">
+                        Subtasks
+                        <span class="text-sm font-label text-on-surface-variant font-normal">2/5</span>
+</h3>
+<ul class="space-y-3">
+<li class="flex items-start space-x-3 font-label text-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check_box</span>
+<span class="text-on-surface-variant line-through">Select hero imagery from the photoshoot</span>
+</li>
+<li class="flex items-start space-x-3 font-label text-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check_box</span>
+<span class="text-on-surface-variant line-through">Define typographic hierarchy for headline</span>
+</li>
+<li class="flex items-start space-x-3 font-label text-sm">
+<span class="material-symbols-outlined text-outline text-[20px] mt-0.5">check_box_outline_blank</span>
+<span class="text-on-surface">Design desktop layout</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Panel Footer -->
+<div class="p-6 border-t border-outline-variant/40 bg-surface flex space-x-4">
+<button class="flex-1 bg-surface-container border border-outline-variant text-on-surface py-2.5 rounded-lg font-label font-medium hover:bg-surface-container-high transition-colors text-sm">Edit Task</button>
+<button class="flex-1 bg-primary text-on-primary py-2.5 rounded-lg font-label font-medium hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm text-sm">Mark Complete</button>
+</div>
+</aside>
+</main>
+</body></html>

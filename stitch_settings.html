@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sahara - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700;800&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#605850",
+                    "on-background": "#3a302a",
+                    "on-secondary-fixed-variant": "#504840",
+                    "surface-container-highest": "#e6e0d6",
+                    "on-primary-fixed": "#401a08",
+                    "error-container": "#fce4e0",
+                    "on-tertiary-container": "#3a2020",
+                    "on-tertiary-fixed": "#2e1515",
+                    "primary": "#c2652a",
+                    "error": "#c0392b",
+                    "on-tertiary-fixed-variant": "#6e3030",
+                    "on-error-container": "#7a1a10",
+                    "on-primary-container": "#fbe8d8",
+                    "secondary-fixed": "#eae2da",
+                    "tertiary": "#8c3c3c",
+                    "surface-tint": "#c2652a",
+                    "tertiary-fixed-dim": "#e8a0a0",
+                    "surface-container-high": "#ece6dc",
+                    "secondary-container": "#eae2da",
+                    "on-secondary-container": "#605850",
+                    "surface-container": "#f2ece4",
+                    "surface-bright": "#faf5ee",
+                    "surface-variant": "#ece6dc",
+                    "inverse-primary": "#f0a878",
+                    "primary-container": "#e08850",
+                    "outline-variant": "#d8d0c8",
+                    "background": "#faf5ee",
+                    "surface-container-low": "#f6f0e8",
+                    "outline": "#9a9088",
+                    "surface-dim": "#dcd6cc",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#3a302a",
+                    "on-primary-fixed-variant": "#8a4518",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#fce0e0",
+                    "primary-fixed-dim": "#f0a878",
+                    "secondary": "#78706a",
+                    "inverse-on-surface": "#faf5ee",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#fbe8d8",
+                    "on-secondary-fixed": "#2a2420",
+                    "tertiary-container": "#d47070",
+                    "on-surface": "#3a302a",
+                    "surface": "#faf5ee",
+                    "secondary-fixed-dim": "#cec6be",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["EB Garamond", "serif"],
+                    "display": ["EB Garamond", "serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Manrope", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex">
+<!-- SideNavBar Component -->
+<nav class="h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-surface hidden md:flex flex-col py-8 space-y-6 z-50">
+<div class="px-8 mb-4">
+<h1 class="font-display text-2xl font-bold tracking-tight text-primary italic">Sahara</h1>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest mt-1">Premium Management</p>
+</div>
+<div class="flex-1 px-4 space-y-2">
+<!-- Navigation Items based on JSON -->
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-stone-400 hover:text-primary hover:translate-x-1 transition-all duration-300 ease-out font-label uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="grid_view">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-stone-400 hover:text-primary hover:translate-x-1 transition-all duration-300 ease-out font-label uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="layers">layers</span>
+<span>Projects</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-stone-400 hover:text-primary hover:translate-x-1 transition-all duration-300 ease-out font-label uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="view_kanban">view_kanban</span>
+<span>Tasks</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-stone-400 hover:text-primary hover:translate-x-1 transition-all duration-300 ease-out font-label uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span>Team</span>
+</a>
+<!-- Active State Navigation -->
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-primary font-bold border-r-4 border-primary bg-orange-50/50 font-label uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings_gear">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="px-8 mt-auto">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-label font-medium py-3 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New Project</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 relative min-h-screen">
+<!-- TopAppBar Contextual Header for Mobile (Hidden on Desktop) -->
+<header class="md:hidden flex justify-between items-center w-full px-6 py-4 bg-surface/90 backdrop-blur-md sticky top-0 z-40 border-b border-outline-variant">
+<h1 class="font-display text-xl font-bold tracking-tight text-primary italic">Sahara</h1>
+<button class="text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- Page Canvas -->
+<div class="max-w-5xl mx-auto px-6 py-12 lg:px-12 lg:py-20">
+<!-- Page Header -->
+<div class="mb-12">
+<h1 class="font-display text-4xl lg:text-5xl font-bold text-on-background mb-3 tracking-tight">Workspace Settings</h1>
+<p class="font-body text-on-surface-variant text-lg max-w-2xl">Manage your premium environment, billing details, and team security preferences.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Inner Sidebar / Secondary Nav -->
+<div class="lg:col-span-3 space-y-1">
+<button class="w-full text-left px-4 py-3 bg-surface-container-low rounded-lg text-primary font-label font-semibold flex items-center justify-between border-l-2 border-primary">
+                        General
+                        <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="w-full text-left px-4 py-3 text-on-surface-variant hover:bg-surface-container-lowest rounded-lg font-label transition-colors flex items-center justify-between">
+                        Security
+                    </button>
+<button class="w-full text-left px-4 py-3 text-on-surface-variant hover:bg-surface-container-lowest rounded-lg font-label transition-colors flex items-center justify-between">
+                        Notifications
+                    </button>
+<button class="w-full text-left px-4 py-3 text-on-surface-variant hover:bg-surface-container-lowest rounded-lg font-label transition-colors flex items-center justify-between">
+                        Billing
+                    </button>
+</div>
+<!-- Settings Forms Area -->
+<div class="lg:col-span-9 space-y-12">
+<!-- Section: Workspace Details -->
+<section class="bg-surface-container-low rounded-xl p-8 shadow-[0_2px_16px_rgba(58,48,42,0.04)] border border-outline-variant/30">
+<div class="border-b border-outline-variant pb-6 mb-8">
+<h2 class="font-display text-2xl font-semibold text-on-background">Workspace Profile</h2>
+<p class="font-body text-sm text-on-surface-variant mt-1">Configure your primary environment identity.</p>
+</div>
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label text-sm font-medium text-on-background">Workspace Name</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-background rounded-lg px-4 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary transition-colors font-body" type="text" value="Acme Corp Design"/>
+</div>
+<div class="space-y-2">
+<label class="font-label text-sm font-medium text-on-background">Subdomain URL</label>
+<div class="flex">
+<span class="inline-flex items-center px-4 rounded-l-lg border border-r-0 border-outline-variant bg-surface text-on-surface-variant font-body text-sm">
+                                            sahara.app/
+                                        </span>
+<input class="flex-1 bg-surface-container-lowest border border-outline-variant text-on-background rounded-r-lg px-4 py-2.5 focus:ring-1 focus:ring-primary focus:border-primary transition-colors font-body" type="text" value="acme-design"/>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label text-sm font-medium text-on-background">Workspace Logo</label>
+<div class="flex items-center gap-6 mt-2">
+<div class="h-20 w-20 rounded-lg bg-surface-container-highest border-2 border-dashed border-outline flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-outline text-3xl">image</span>
+</div>
+<div class="space-y-2">
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-surface text-on-background border border-outline-variant rounded-lg font-label text-sm font-medium hover:bg-surface-variant transition-colors">Upload new</button>
+<button class="px-4 py-2 text-tertiary font-label text-sm font-medium hover:bg-error-container rounded-lg transition-colors">Remove</button>
+</div>
+<p class="font-body text-xs text-on-surface-variant">Recommended size: 256x256px. JPG, PNG, or SVG.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Preferences Controls -->
+<section class="bg-surface-container-low rounded-xl p-8 shadow-[0_2px_16px_rgba(58,48,42,0.04)] border border-outline-variant/30">
+<div class="border-b border-outline-variant pb-6 mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-display text-2xl font-semibold text-on-background">Environment Preferences</h2>
+<p class="font-body text-sm text-on-surface-variant mt-1">Adjust how your team interacts with the workspace.</p>
+</div>
+</div>
+<div class="space-y-8">
+<!-- Toggle Item 1 -->
+<div class="flex items-center justify-between">
+<div class="pr-8">
+<h3 class="font-label text-base font-semibold text-on-background">Enforce Two-Factor Authentication (2FA)</h3>
+<p class="font-body text-sm text-on-surface-variant mt-1">Require all workspace members to use 2FA for login.</p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none bg-primary" role="switch">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-container-lowest shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<!-- Toggle Item 2 -->
+<div class="flex items-center justify-between">
+<div class="pr-8">
+<h3 class="font-label text-base font-semibold text-on-background">Public Portfolio Visibility</h3>
+<p class="font-body text-sm text-on-surface-variant mt-1">Allow completed projects to be indexed by search engines.</p>
+</div>
+<button aria-checked="false" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none bg-surface-container-highest" role="switch">
+<span class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-surface-container-lowest shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<!-- Slider Item -->
+<div class="pt-4 border-t border-outline-variant/50">
+<div class="flex justify-between items-end mb-4">
+<div>
+<h3 class="font-label text-base font-semibold text-on-background">Session Timeout</h3>
+<p class="font-body text-sm text-on-surface-variant mt-1">Automatically log out inactive users.</p>
+</div>
+<span class="font-label font-bold text-primary">4 Hours</span>
+</div>
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="12" min="1" type="range" value="4"/>
+<div class="flex justify-between font-body text-xs text-on-surface-variant mt-2">
+<span>1 Hr</span>
+<span>12 Hrs</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Form Actions -->
+<div class="flex justify-end gap-4 pt-4 border-t border-outline-variant">
+<button class="px-6 py-2.5 bg-surface text-on-background border border-outline-variant rounded-lg font-label font-semibold hover:bg-surface-variant transition-colors">Cancel</button>
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-label font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">Save Changes</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

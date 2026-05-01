@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sahara - Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#e08850",
+                        "secondary-container": "#eae2da",
+                        "secondary-fixed-dim": "#cec6be",
+                        "secondary": "#78706a",
+                        "primary": "#c2652a",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#7a1a10",
+                        "on-secondary-container": "#605850",
+                        "on-primary-fixed-variant": "#8a4518",
+                        "tertiary-fixed-dim": "#e8a0a0",
+                        "inverse-primary": "#f0a878",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#605850",
+                        "tertiary-container": "#d47070",
+                        "on-primary-container": "#fbe8d8",
+                        "on-secondary-fixed": "#2a2420",
+                        "inverse-on-surface": "#faf5ee",
+                        "error-container": "#fce4e0",
+                        "surface-variant": "#ece6dc",
+                        "background": "#faf5ee",
+                        "secondary-fixed": "#eae2da",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f0e8",
+                        "error": "#c0392b",
+                        "surface-dim": "#dcd6cc",
+                        "surface-bright": "#faf5ee",
+                        "on-surface": "#3a302a",
+                        "on-background": "#3a302a",
+                        "inverse-surface": "#3a302a",
+                        "primary-fixed-dim": "#f0a878",
+                        "surface-tint": "#c2652a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#faf5ee",
+                        "primary-fixed": "#fbe8d8",
+                        "surface-container": "#f2ece4",
+                        "surface-container-highest": "#e6e0d6",
+                        "on-secondary": "#ffffff",
+                        "outline": "#9a9088",
+                        "on-secondary-fixed-variant": "#504840",
+                        "on-tertiary-fixed": "#2e1515",
+                        "outline-variant": "#d8d0c8",
+                        "on-primary-fixed": "#401a08",
+                        "surface-container-high": "#ece6dc",
+                        "tertiary-fixed": "#fce0e0",
+                        "on-tertiary-container": "#3a2020",
+                        "tertiary": "#8c3c3c",
+                        "on-tertiary-fixed-variant": "#6e3030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["EB Garamond", "serif"],
+                        "display": ["EB Garamond", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    },
+                    "fontSize": {}
+                },
+            },
+        }
+    </script>
+<style>
+        /* Base styles to ensure consistency if not fully covered by tailwind reset */
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-primary-container h-screen flex overflow-hidden">
+<!-- SideNavBar Component -->
+<nav class="bg-[#faf5ee]/80 dark:bg-stone-900/80 backdrop-blur-md h-screen w-64 border-r border-[#d8d0c8]/60 flex flex-col py-6 px-4 hidden md:flex shrink-0 z-50">
+<!-- Header -->
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/50 shrink-0">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A sophisticated portrait of a professional woman with natural, warm lighting. The background is a soft, minimal beige studio setting, complementing the luxurious 'Sun-Baked Simplicity' aesthetic. She is wearing a modern, tailored terracotta blazer, conveying competence and warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIWpQKmnutMu8xslMUxsveLKqM253BWHsDaGk5Ojtc5j72UQKhLhwrOIIyt6YcT37p3qN0kS4oj4yQKxexsPLgxry3b7GJKAPH3YLK0uZKNLKIlWA3y27oViotmUoGtYvyTVJqscEgcfxmH2TclxPYHptxPHmeZqXSnSpelT1IZUFKrsMW-c6FPUDXiDutkYZLxEnDRWRtyPjLEe5fOxQCUwr0FTnjeJPAMf5e8cg18BBPTzFXZybb2sFlAdYmMg2qYKaFYnmEMgg"/>
+</div>
+<div>
+<h1 class="font-['EB_Garamond'] text-2xl font-bold text-[#c2652a] leading-none mb-1">Sahara</h1>
+<p class="font-['Manrope'] font-medium text-sm text-secondary leading-none">Premium Management</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="mb-8 w-full bg-primary hover:bg-primary/90 text-on-primary font-medium py-3 px-4 rounded-lg flex justify-center items-center gap-2 transition-all shadow-[0_2px_16px_rgba(58,48,42,0.04)] active:scale-95">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 0;">add</span>
+            New Project
+        </button>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#c2652a] font-bold border-r-2 border-[#c2652a] bg-[#c2652a]/5 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-['Manrope'] font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-stone-500 hover:text-[#c2652a] hover:bg-[#c2652a]/5 transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+<span class="font-['Manrope'] font-medium text-sm">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-stone-500 hover:text-[#c2652a] hover:bg-[#c2652a]/5 transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span class="font-['Manrope'] font-medium text-sm">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-stone-500 hover:text-[#c2652a] hover:bg-[#c2652a]/5 transition-colors active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
+<span class="font-['Manrope'] font-medium text-sm">Team</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-stone-500 hover:text-[#c2652a] hover:bg-[#c2652a]/5 transition-colors active:scale-95 transition-transform mt-auto mb-4" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-['Manrope'] font-medium text-sm">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+<!-- TopAppBar Component -->
+<header class="bg-[#faf5ee]/80 dark:bg-stone-900/80 backdrop-blur-md w-full h-16 border-b border-[#d8d0c8]/60 flex justify-between items-center px-8 w-full sticky top-0 z-40">
+<!-- Left Side: Brand (Mobile) & Search -->
+<div class="flex items-center gap-6">
+<!-- Mobile Brand (Hidden on md) -->
+<div class="md:hidden">
+<span class="font-['EB_Garamond'] text-xl font-semibold text-[#c2652a]">Sahara</span>
+</div>
+<!-- Search Bar -->
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-lg">search</span>
+<input class="w-64 pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant/60 rounded-full font-['Manrope'] text-sm text-on-surface focus:outline-none focus:border-[#c2652a] focus:ring-1 focus:ring-[#c2652a] transition-all placeholder:text-stone-400" placeholder="Search..." type="text"/>
+</div>
+</div>
+<!-- Right Side: Actions -->
+<div class="flex items-center gap-4">
+<button class="text-stone-500 hover:text-[#c2652a] transition-colors active:opacity-80 transition-opacity p-2 rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-stone-500 hover:text-[#c2652a] transition-colors active:opacity-80 transition-opacity p-2 rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="text-stone-500 hover:text-[#c2652a] transition-colors active:opacity-80 transition-opacity p-2 rounded-full hover:bg-surface-container-highest md:hidden">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<main class="flex-1 overflow-y-auto p-6 md:p-10 lg:px-14 pb-20">
+<div class="max-w-6xl mx-auto">
+<!-- Welcome Header -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<p class="text-secondary font-medium tracking-wide text-sm uppercase mb-1">Overview</p>
+<h2 class="font-headline text-4xl md:text-5xl text-on-background leading-tight">Welcome back, <span class="italic text-primary">Eleanor</span>.</h2>
+</div>
+<div class="text-sm text-secondary">
+<p>Tuesday, October 24th</p>
+</div>
+</div>
+<!-- Summary Bento Grid (Glassmorphism Cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<!-- Card: Active Projects -->
+<div class="bg-surface-container-low/60 backdrop-blur-md rounded-2xl p-6 border border-outline-variant/40 shadow-[0_4px_24px_rgba(58,48,42,0.03)] flex flex-col justify-between group hover:border-primary/30 transition-colors duration-300">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+</div>
+<span class="text-xs font-medium text-secondary bg-surface-container px-2 py-1 rounded-full">Active</span>
+</div>
+<div>
+<p class="text-3xl font-headline text-on-surface mb-1">12</p>
+<p class="text-sm text-secondary font-medium">Projects in progress</p>
+</div>
+</div>
+<!-- Card: Tasks Completed -->
+<div class="bg-surface-container-low/60 backdrop-blur-md rounded-2xl p-6 border border-outline-variant/40 shadow-[0_4px_24px_rgba(58,48,42,0.03)] flex flex-col justify-between group hover:border-primary/30 transition-colors duration-300">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+<span class="text-xs font-medium text-secondary bg-surface-container px-2 py-1 rounded-full">This Week</span>
+</div>
+<div>
+<p class="text-3xl font-headline text-on-surface mb-1">48</p>
+<p class="text-sm text-secondary font-medium">Tasks completed</p>
+</div>
+</div>
+<!-- Card: Active Tasks -->
+<div class="bg-surface-container-low/60 backdrop-blur-md rounded-2xl p-6 border border-outline-variant/40 shadow-[0_4px_24px_rgba(58,48,42,0.03)] flex flex-col justify-between group hover:border-primary/30 transition-colors duration-300">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 rounded-full bg-primary-fixed/50 flex items-center justify-center text-on-primary-fixed group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pending_actions</span>
+</div>
+<span class="text-xs font-medium text-secondary bg-surface-container px-2 py-1 rounded-full">Current</span>
+</div>
+<div>
+<p class="text-3xl font-headline text-on-surface mb-1">84</p>
+<p class="text-sm text-secondary font-medium">Open tasks remaining</p>
+</div>
+</div>
+<!-- Card: Overdue Tasks -->
+<div class="bg-error-container/20 backdrop-blur-md rounded-2xl p-6 border border-error/20 shadow-[0_4px_24px_rgba(192,57,43,0.04)] flex flex-col justify-between group hover:border-error/40 transition-colors duration-300 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-error/5 rounded-full blur-xl"></div>
+<div class="flex justify-between items-start mb-8 relative z-10">
+<div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center text-error group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<span class="text-xs font-bold text-error bg-error/10 px-2 py-1 rounded-full">Action Needed</span>
+</div>
+<div class="relative z-10">
+<p class="text-3xl font-headline text-error mb-1">5</p>
+<p class="text-sm text-error/80 font-medium">Overdue items</p>
+</div>
+</div>
+</div>
+<!-- Main Widgets Area -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Recent Tasks Section (Spans 2 cols) -->
+<div class="lg:col-span-2">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-2xl text-on-surface">Recent Activity</h3>
+<button class="text-sm text-primary font-medium hover:underline underline-offset-4 decoration-primary/50">View all</button>
+</div>
+<div class="bg-surface-container-low/40 rounded-2xl border border-outline-variant/30 overflow-hidden shadow-[0_2px_16px_rgba(58,48,42,0.02)]">
+<!-- Task Row 1 -->
+<div class="flex items-center gap-4 p-5 border-b border-outline-variant/20 hover:bg-surface-container-lowest/50 transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 0;">edit_document</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-base font-medium text-on-surface truncate group-hover:text-primary transition-colors">Finalize Q4 Marketing Deck</h4>
+<p class="text-sm text-secondary truncate">Sahara Rebranding Initiative</p>
+</div>
+<div class="text-right hidden sm:block shrink-0">
+<span class="inline-block px-3 py-1 bg-surface-container text-xs font-medium text-secondary rounded-full mb-1">In Progress</span>
+<p class="text-xs text-outline">Due Tomorrow</p>
+</div>
+</div>
+<!-- Task Row 2 -->
+<div class="flex items-center gap-4 p-5 border-b border-outline-variant/20 hover:bg-surface-container-lowest/50 transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface shrink-0">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 0;">forum</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-base font-medium text-on-surface truncate group-hover:text-primary transition-colors">Client Check-in: Alpha Corp</h4>
+<p class="text-sm text-secondary truncate">Account Management</p>
+</div>
+<div class="text-right hidden sm:block shrink-0">
+<span class="inline-block px-3 py-1 bg-secondary/10 text-xs font-medium text-secondary rounded-full mb-1">Scheduled</span>
+<p class="text-xs text-outline">Today, 2:00 PM</p>
+</div>
+</div>
+<!-- Task Row 3 -->
+<div class="flex items-center gap-4 p-5 border-b border-outline-variant/20 hover:bg-surface-container-lowest/50 transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 0;">design_services</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-base font-medium text-on-surface truncate group-hover:text-primary transition-colors">Review Wireframes for V2</h4>
+<p class="text-sm text-secondary truncate">Product Development</p>
+</div>
+<div class="text-right hidden sm:block shrink-0">
+<span class="inline-block px-3 py-1 bg-surface-container text-xs font-medium text-secondary rounded-full mb-1">In Review</span>
+<p class="text-xs text-outline">Due in 3 days</p>
+</div>
+</div>
+<!-- Task Row 4 -->
+<div class="flex items-center gap-4 p-5 hover:bg-surface-container-lowest/50 transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-base font-medium text-on-surface line-through opacity-60 truncate">Submit Expense Reports</h4>
+<p class="text-sm text-secondary opacity-60 truncate">Internal Admin</p>
+</div>
+<div class="text-right hidden sm:block shrink-0">
+<span class="inline-block px-3 py-1 bg-surface-container text-xs font-medium text-outline rounded-full mb-1">Completed</span>
+<p class="text-xs text-outline opacity-60">Yesterday</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Overdue Tasks Dedicated Widget -->
+<div class="lg:col-span-1">
+<div class="flex items-center gap-2 mb-6 text-error">
+<span class="material-symbols-outlined text-[22px]">error</span>
+<h3 class="font-headline text-2xl">Attention Required</h3>
+</div>
+<div class="bg-[#faf5ee] border border-error/20 rounded-2xl p-1 shadow-sm">
+<div class="bg-error-container/10 rounded-xl flex flex-col gap-1 p-2">
+<!-- Overdue Item 1 -->
+<div class="p-4 rounded-lg hover:bg-white/60 transition-colors border border-transparent hover:border-error/10 cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-medium text-on-surface text-sm leading-tight">Approve Q3 Budget Allocation</h4>
+<span class="text-xs font-bold text-error bg-error/10 px-2 py-0.5 rounded text-nowrap ml-2">2d late</span>
+</div>
+<p class="text-xs text-secondary mb-3">Finance Department</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-white border border-outline-variant/60 text-on-surface text-xs font-medium py-1.5 rounded-md hover:border-primary transition-colors">View Details</button>
+<button class="flex-1 bg-error text-white text-xs font-medium py-1.5 rounded-md hover:bg-error/90 transition-colors">Resolve</button>
+</div>
+</div>
+<!-- Overdue Item 2 -->
+<div class="p-4 rounded-lg hover:bg-white/60 transition-colors border border-transparent hover:border-error/10 cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-medium text-on-surface text-sm leading-tight">Send Contract to Vendor</h4>
+<span class="text-xs font-bold text-error bg-error/10 px-2 py-0.5 rounded text-nowrap ml-2">1d late</span>
+</div>
+<p class="text-xs text-secondary mb-3">Legal &amp; Compliance</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-white border border-outline-variant/60 text-on-surface text-xs font-medium py-1.5 rounded-md hover:border-primary transition-colors">View Details</button>
+<button class="flex-1 bg-error text-white text-xs font-medium py-1.5 rounded-md hover:bg-error/90 transition-colors">Resolve</button>
+</div>
+</div>
+<button class="w-full text-center py-3 text-sm font-medium text-error hover:text-error/80 transition-colors mt-1">
+                                    See 3 more overdue tasks
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

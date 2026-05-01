@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Team Management - Sahara</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#605850",
+                        "on-background": "#3a302a",
+                        "on-secondary-fixed-variant": "#504840",
+                        "surface-container-highest": "#e6e0d6",
+                        "on-primary-fixed": "#401a08",
+                        "error-container": "#fce4e0",
+                        "on-tertiary-container": "#3a2020",
+                        "on-tertiary-fixed": "#2e1515",
+                        "primary": "#c2652a",
+                        "error": "#c0392b",
+                        "on-tertiary-fixed-variant": "#6e3030",
+                        "on-error-container": "#7a1a10",
+                        "on-primary-container": "#fbe8d8",
+                        "secondary-fixed": "#eae2da",
+                        "tertiary": "#8c3c3c",
+                        "surface-tint": "#c2652a",
+                        "tertiary-fixed-dim": "#e8a0a0",
+                        "surface-container-high": "#ece6dc",
+                        "secondary-container": "#eae2da",
+                        "on-secondary-container": "#605850",
+                        "surface-container": "#f2ece4",
+                        "surface-bright": "#faf5ee",
+                        "surface-variant": "#ece6dc",
+                        "inverse-primary": "#f0a878",
+                        "primary-container": "#e08850",
+                        "outline-variant": "#d8d0c8",
+                        "background": "#faf5ee",
+                        "surface-container-low": "#f6f0e8",
+                        "outline": "#9a9088",
+                        "surface-dim": "#dcd6cc",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#3a302a",
+                        "on-primary-fixed-variant": "#8a4518",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#fce0e0",
+                        "primary-fixed-dim": "#f0a878",
+                        "secondary": "#78706a",
+                        "inverse-on-surface": "#faf5ee",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#fbe8d8",
+                        "on-secondary-fixed": "#2a2420",
+                        "tertiary-container": "#d47070",
+                        "on-surface": "#3a302a",
+                        "surface": "#faf5ee",
+                        "secondary-fixed-dim": "#cec6be",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["EB Garamond", "serif"],
+                        "display": ["EB Garamond", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (from JSON) -->
+<nav class="hidden md:flex h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-[#faf5ee] z-50 flex-col h-full py-8 space-y-6">
+<div class="px-8">
+<div class="font-serif text-xl italic text-[#c2652a] mb-8">Sahara</div>
+</div>
+<div class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-stone-400 hover:text-[#c2652a] hover:translate-x-1 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-sans uppercase tracking-widest text-xs">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-stone-400 hover:text-[#c2652a] hover:translate-x-1 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-sans uppercase tracking-widest text-xs">Projects</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-stone-400 hover:text-[#c2652a] hover:translate-x-1 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">view_kanban</span>
+<span class="font-sans uppercase tracking-widest text-xs">Tasks</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-[#c2652a] font-bold border-r-4 border-[#c2652a] bg-orange-50/50" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-sans uppercase tracking-widest text-xs">Team</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-stone-400 hover:text-[#c2652a] hover:translate-x-1 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-sans uppercase tracking-widest text-xs">Settings</span>
+</a>
+</div>
+<div class="px-8 mt-auto">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label text-sm hover:bg-primary/90 transition-colors">
+                New Project
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 relative min-h-screen">
+<!-- TopAppBar (from JSON) -->
+<header class="bg-[#faf5ee]/80 backdrop-blur-xl docked full-width top-0 z-40 border-b border-outline-variant/60 shadow-sm shadow-stone-200/50 flex justify-between items-center w-full px-8 py-4 sticky">
+<div class="flex items-center gap-4 md:hidden">
+<span class="font-serif text-2xl font-semibold tracking-tight text-[#c2652a]">Sahara</span>
+</div>
+<div class="hidden md:flex items-center gap-4 bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant/50">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-label text-on-surface-variant w-48 placeholder:text-outline" placeholder="Search..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-stone-500 hover:bg-orange-50/50 transition-colors duration-300 p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-stone-500 hover:bg-orange-50/50 transition-colors duration-300 p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined">contrast</span>
+</button>
+<button class="text-stone-500 hover:bg-orange-50/50 transition-colors duration-300 p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant/50 cursor-pointer hover:ring-2 ring-primary/30 transition-all">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional woman with a warm smile, set against a subtle, light-toned background. The lighting is soft and flattering, creating a premium, modern aesthetic consistent with a high-end corporate or creative agency profile. Warm, sun-baked undertones are subtly present in the image styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMktwh_fTxjFGrGAMy9C6brz5012KHZBBKLk6f2BFQcKiCp_YfFf7kxw19m6WnzyPcWXQd1zdGlndxN5ye3ghG009Lru3Lzzf2ydoVLoyGmTAFhOGpI-9KiF5o4-BA29B5ECDTttOHh8Z1qHlTwfvyWuHqsF27EsKWwbmOwCk21f3qmlHLhdOkJNEWuV0YTnsAWd_YmQyrYpb6Rq-TXf6qh4ws1vlDUODMr8mQU0X7Y9Mup0Zy4n-pOAtBoDV1RwFZnG-ynDsn0KU"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 max-w-7xl mx-auto space-y-12">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline text-4xl md:text-5xl text-on-surface mb-2 tracking-tight">Team Management</h1>
+<p class="font-body text-on-surface-variant max-w-xl text-lg leading-relaxed">Oversee your creative roster. Manage roles, access, and invitations within the Sahara workspace.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label font-medium hover:bg-primary/90 transition-colors flex items-center gap-2 shadow-sm shrink-0 active:scale-95">
+<span class="material-symbols-outlined text-sm">person_add</span>
+                    Invite Member
+                </button>
+</div>
+<!-- Stats/Filters Row -->
+<div class="flex flex-col sm:flex-row justify-between items-center bg-surface-container-low p-2 rounded-xl border border-outline-variant/40">
+<div class="flex space-x-1 w-full sm:w-auto overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
+<button class="px-6 py-2 rounded-lg bg-surface text-on-surface font-label text-sm shadow-sm border border-outline-variant/30 whitespace-nowrap">All Members (24)</button>
+<button class="px-6 py-2 rounded-lg text-on-surface-variant hover:bg-surface/50 font-label text-sm transition-colors whitespace-nowrap">Active (20)</button>
+<button class="px-6 py-2 rounded-lg text-on-surface-variant hover:bg-surface/50 font-label text-sm transition-colors whitespace-nowrap">Pending (4)</button>
+</div>
+<div class="w-full sm:w-auto mt-4 sm:mt-0 px-2 flex items-center gap-3 text-on-surface-variant">
+<span class="font-label text-sm">Sort by:</span>
+<select class="bg-transparent border-none text-sm font-label focus:ring-0 cursor-pointer hover:text-primary transition-colors pr-8">
+<option>Name (A-Z)</option>
+<option>Role</option>
+<option>Recent Activity</option>
+</select>
+</div>
+</div>
+<!-- Bento Grid Directory -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Member Card 1 -->
+<div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/40 hover:shadow-[0_2px_16px_rgba(58,48,42,0.04)] transition-all duration-300 group flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<div class="h-16 w-16 rounded-full overflow-hidden border-2 border-surface-bright shadow-sm">
+<img alt="Member Avatar" class="w-full h-full object-cover" data-alt="Portrait of a professional man with short dark hair, wearing a casual light-colored shirt, smiling subtly. The background is slightly blurred and warm-toned. The image has a clean, high-quality editorial feel suitable for a premium team directory, featuring soft natural lighting that enhances the warm aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjmvlN-WBBtD9cwkYjrc_rdxenL-AnrjQuOnT1b455oWO-xvoEnYy10zvaVVa2dCmIaPMGs0sw_V5czE4Z1EMY0_ELy3TYBqh1RaEUdqCAXZNZ3-BKcuz6bIQ7CLQW99DhBBm995H5JTzVyGeYKhmWpzrPxlpdaBolcC6XjttU0ptWs3SQ3wpSDM99qbC4p2ubc0r2RC7mb2y7MfqraeeOOXnSlChoqt5z8i32KBWTHF5fhPjPHrbesQ9kR6YmbjZ6VCJ6meMh48Q"/>
+</div>
+<button class="text-outline hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="mb-4">
+<h3 class="font-headline text-2xl text-on-surface mb-1">Elias Thorne</h3>
+<p class="font-label text-primary text-sm font-medium">Design Director</p>
+</div>
+<div class="space-y-3 mb-8 flex-1">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm opacity-70">mail</span>
+<span class="font-label text-sm truncate">elias@sahara.design</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm opacity-70">schedule</span>
+<span class="font-label text-sm">Last active: 2h ago</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-label text-xs font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Active
+                        </span>
+<a class="font-label text-sm text-on-surface-variant hover:text-primary underline decoration-primary/30 underline-offset-4 transition-all" href="#">View Profile</a>
+</div>
+</div>
+<!-- Member Card 2 -->
+<div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/40 hover:shadow-[0_2px_16px_rgba(58,48,42,0.04)] transition-all duration-300 group flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<div class="h-16 w-16 rounded-full overflow-hidden border-2 border-surface-bright shadow-sm">
+<img alt="Member Avatar" class="w-full h-full object-cover" data-alt="Portrait of a young professional woman with medium-length brown hair, looking directly at the camera with a confident, slight smile. She wears a neutral-toned top against a very soft, warm, out-of-focus background. The lighting is even and soft, contributing to a high-end, minimal editorial aesthetic consistent with a luxury brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ4PBrvkxXFUVU3oeaeLz-t_XVhwJHrRI_m6f1cj5pQI5ag5R47XrQluapFcYXkY6oWrH1knjt9aG_eMt-ozbam-2SSe1oiLtGJEtnr2GNVlZg2B9i8_saOfZWY-P3kWtOKl4Yqv8MUac6GzLu10uTKS7nrZUTkbroLj7e7TFxaF_Kfcsrt2FB-KUTcF94-hfrHhQ6kdGW0b-0_Rkl86d0PZ8XPRHHQCDB2cmii84I5d8kpJJ5ru1Ox9UQlaj4h6gQfxELAgxx29o"/>
+</div>
+<button class="text-outline hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="mb-4">
+<h3 class="font-headline text-2xl text-on-surface mb-1">Amara Singh</h3>
+<p class="font-label text-primary text-sm font-medium">Senior Architect</p>
+</div>
+<div class="space-y-3 mb-8 flex-1">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm opacity-70">mail</span>
+<span class="font-label text-sm truncate">amara@sahara.design</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm opacity-70">schedule</span>
+<span class="font-label text-sm">Last active: Just now</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-label text-xs font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Active
+                        </span>
+<a class="font-label text-sm text-on-surface-variant hover:text-primary underline decoration-primary/30 underline-offset-4 transition-all" href="#">View Profile</a>
+</div>
+</div>
+<!-- Member Card 3 (Pending) -->
+<div class="bg-surface rounded-xl p-8 border border-dashed border-outline-variant hover:border-primary/50 transition-all duration-300 group flex flex-col h-full opacity-80 hover:opacity-100">
+<div class="flex justify-between items-start mb-6">
+<div class="h-16 w-16 rounded-full bg-surface-container flex items-center justify-center text-outline-variant border-2 border-dashed border-outline-variant">
+<span class="font-headline text-xl">JD</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="mb-4">
+<h3 class="font-headline text-2xl text-on-surface mb-1">Julian Davis</h3>
+<p class="font-label text-on-surface-variant text-sm font-medium">Project Manager</p>
+</div>
+<div class="space-y-3 mb-8 flex-1">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm opacity-70">mail</span>
+<span class="font-label text-sm truncate">julian.d@sahara.design</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm opacity-70">schedule</span>
+<span class="font-label text-sm">Invited 2 days ago</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label text-xs font-medium">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                            Pending
+                        </span>
+<button class="font-label text-sm text-primary hover:text-primary-fixed-variant transition-colors">Resend Invite</button>
+</div>
+</div>
+<!-- Member Card 4 -->
+<div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/40 hover:shadow-[0_2px_16px_rgba(58,48,42,0.04)] transition-all duration-300 group flex flex-col h-full">
+<div class="flex justify-between items-start mb-6">
+<div class="h-16 w-16 rounded-full overflow-hidden border-2 border-surface-bright shadow-sm">
+<img alt="Member Avatar" class="w-full h-full object-cover" data-alt="Portrait of a confident female professional with light blonde hair, captured against a warm, sandy-toned minimal background. She is wearing elegant, understated clothing. The image exudes a sense of calm authority and luxury, with soft, diffused lighting typical of high-end editorial photography, perfectly matching a warm, minimalist UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2kbwxG-827BKL2tupoaiQOvCMzM7VaFmzI2AQtE9XXQdp4xv_Tgf0MyR4VkB9664wbWuywNi5D0vMdj1BLxP6h6J9OcWxEJT6Pi7iHVMGfIyT0slAx-np2756rJQ4blOtarPO0l4R-Hccx6-seg3cwjPyJC9ayRxugnabB2AGb60QHb-dXF_i_ljFkS-NZLpH7DAL1yOC5Sk7lIfTqA_NEDA1dlDG-4-89hD86DpQmidQtAcWzN6NSa8eSDy-HM83Yt9KGAMv8yw"/>
+</div>
+<button class="text-outline hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="mb-4">
+<h3 class="font-headline text-2xl text-on-surface mb-1">Clara Voss</h3>
+<p class="font-label text-primary text-sm font-medium">Client Relations</p>
+</div>
+<div class="space-y-3 mb-8 flex-1">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm opacity-70">mail</span>
+<span class="font-label text-sm truncate">clara@sahara.design</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm opacity-70">schedule</span>
+<span class="font-label text-sm">Last active: 1d ago</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-label text-xs font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                            Active
+                        </span>
+<a class="font-label text-sm text-on-surface-variant hover:text-primary underline decoration-primary/30 underline-offset-4 transition-all" href="#">View Profile</a>
+</div>
+</div>
+</div>
+<!-- Pagination (Minimal) -->
+<div class="flex justify-center pt-8">
+<div class="flex items-center gap-2 font-label text-sm text-on-surface-variant">
+<button class="p-2 rounded-lg hover:bg-surface-container transition-colors disabled:opacity-50">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<span class="px-4">Page 1 of 3</span>
+<button class="p-2 rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>
