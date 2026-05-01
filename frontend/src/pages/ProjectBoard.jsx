@@ -207,7 +207,7 @@ const ProjectBoard = () => {
       <div className="flex-1 flex flex-col h-[calc(100vh-80px)] md:h-screen relative bg-surface-container-lowest overflow-hidden">
         
         {/* Board Header */}
-        <div className="px-8 py-6 border-b border-outline-variant/40 bg-surface-bright flex flex-col md:flex-row md:justify-between md:items-end flex-shrink-0 gap-4">
+        <div className="px-4 md:px-8 py-4 md:py-6 border-b border-outline-variant/40 bg-surface-bright flex flex-col md:flex-row md:justify-between md:items-end flex-shrink-0 gap-4">
           <div>
             <p className="text-sm font-label text-on-surface-variant uppercase tracking-widest mb-1">Project Details</p>
             <h2 className="text-4xl font-headline text-on-surface leading-tight">{project.title}</h2>
@@ -238,7 +238,7 @@ const ProjectBoard = () => {
         </div>
 
         {/* Filters Bar */}
-        <div className="px-8 py-3 border-b border-outline-variant/30 flex items-center gap-4 bg-surface-container-lowest flex-shrink-0 z-10">
+        <div className="px-4 md:px-8 py-3 border-b border-outline-variant/30 flex items-center gap-4 bg-surface-container-lowest flex-shrink-0 z-10 overflow-x-auto kanban-scroll">
           <button 
             onClick={() => setFilterMyTasks(!filterMyTasks)}
             className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-colors flex items-center gap-2 ${filterMyTasks ? 'bg-primary text-on-primary border-primary' : 'bg-surface border-outline-variant hover:bg-surface-container'}`}
@@ -263,8 +263,8 @@ const ProjectBoard = () => {
         </div>
 
         {/* Kanban Board Area */}
-        <div className="flex-1 overflow-x-auto overflow-y-hidden kanban-scroll p-8">
-          <div className="flex space-x-6 h-full items-start min-w-max pb-4">
+        <div className="flex-1 overflow-x-auto overflow-y-hidden kanban-scroll p-4 md:p-8">
+          <div className="flex space-x-4 md:space-x-6 h-full items-start min-w-max pb-4">
             {columns.map((col) => (
               <div key={col.id} className="w-80 flex-shrink-0 flex flex-col max-h-full">
                 <div className="flex justify-between items-center mb-4 px-2">

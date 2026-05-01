@@ -63,7 +63,7 @@ const Dashboard = () => {
   return (
     <Layout>
       {/* Dashboard Header */}
-      <div className="px-8 pt-10 pb-6 flex justify-between items-end">
+      <div className="px-4 md:px-8 pt-6 md:pt-10 pb-4 md:pb-6 flex justify-between items-end">
         <div>
           <h1 className="font-headline text-4xl lg:text-5xl font-bold text-on-background tracking-tight mb-2">
             Welcome back, {user?.name}
@@ -127,7 +127,7 @@ const Dashboard = () => {
       </div>
 
       {/* Bento Grid Content */}
-      <div className="p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 grid-rows-auto gap-6">
+      <div className="p-4 md:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 grid-rows-auto gap-4 md:gap-6">
         
         {/* Active Projects */}
         <div className="col-span-1 sm:col-span-2 row-span-1 bg-surface-container-low/70 backdrop-blur-md border border-outline-variant/40 shadow-sm rounded-xl p-6 flex flex-col justify-between relative overflow-hidden group">
@@ -189,7 +189,7 @@ const Dashboard = () => {
         </div>
 
         {/* Recent Activity */}
-        <div className="col-span-1 sm:col-span-2 lg:col-span-2 row-span-2 bg-surface-container-low/70 backdrop-blur-md border border-outline-variant/40 shadow-sm rounded-xl p-8 flex flex-col h-[500px]">
+        <div className="col-span-1 sm:col-span-2 lg:col-span-2 row-span-2 bg-surface-container-low/70 backdrop-blur-md border border-outline-variant/40 shadow-sm rounded-xl p-6 md:p-8 flex flex-col h-[400px] md:h-[500px]">
           <div className="flex justify-between items-center mb-6 border-b border-outline-variant/30 pb-4">
             <h2 className="font-headline text-2xl font-semibold text-on-background">Recent Activity</h2>
             <Link to="/projects" className="text-sm font-medium text-primary hover:text-on-primary-fixed-variant">View All</Link>
@@ -216,7 +216,7 @@ const Dashboard = () => {
         </div>
 
         {/* Task Distribution (Chart) */}
-        <div className="col-span-1 sm:col-span-2 lg:col-span-1 row-span-2 bg-surface-container-low/70 backdrop-blur-md border border-outline-variant/40 shadow-sm rounded-xl p-8 flex flex-col items-center justify-center relative h-[500px]">
+        <div className="col-span-1 sm:col-span-2 lg:col-span-1 row-span-2 bg-surface-container-low/70 backdrop-blur-md border border-outline-variant/40 shadow-sm rounded-xl p-6 md:p-8 flex flex-col items-center justify-center relative h-[300px] md:h-[500px]">
           <div className="w-full flex justify-between items-center mb-8 absolute top-8 left-8 right-8 px-8">
             <h2 className="font-headline text-2xl font-semibold text-on-background">Task Distribution</h2>
           </div>
